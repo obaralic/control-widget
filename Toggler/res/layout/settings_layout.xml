@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2013 oBaralic, Inc. (owner Zivorad Baralic)    
+             ____                   ___
+      ____  / __ )____ __________ _/ (_)____
+     / __ \/ __  / __ `/ ___/ __ `/ / / ___/
+    / /_/ / /_/ / /_/ / /  / /_/ / / / /__
+    \____/_____/\__,_/_/   \__,_/_/_/\___/
+    
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+ 
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_crop" >
+
+    <LinearLayout
+            android:id="@+id/activityTitleLabel_TextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/marginLeft5dp"
+            android:layout_marginRight="@dimen/marginRight5dp"
+            android:layout_marginTop="@dimen/marginTop5dp"
+            android:background="@color/gray_light"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding5dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@android:string/unknownName"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/marginLeft10dp"
+                android:text="@string/ConfigurationScreenTitle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/gray_dark" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/instructions_holder_RelativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/toggler_widget_name_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/WidgetName"
+            android:textColor="@color/gray_light"
+            android:textSize="@dimen/Font12sp" />
+
+        <TextView
+            android:id="@+id/toggler_widget_product_owner_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/OBaralic"
+            android:textColor="@color/gray_light"
+            android:textSize="@dimen/Font12sp" />
+
+        <TextView
+            android:id="@+id/toggler_widget_license_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="@string/HyperlinkToLicenseAgreement"
+            android:text="@string/LicenseAgreement"
+            android:textColor="@color/blue_light"
+            android:textSize="@dimen/Font12sp" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/skinSeparator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/instructions_holder_RelativeLayout"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        layout="@layout/divide_line" />
+
+    <RelativeLayout
+        android:id="@+id/backgroundSkins_RelativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:layout_above="@id/skinSeparator"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center_vertical" >
+
+        <include
+            android:id="@+id/skinTransparent_RelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            layout="@layout/skin_glass_layout" />
+
+        <include
+            android:id="@+id/skinBlue_RelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/skinTransparent_RelativeLayout"
+            layout="@layout/skin_blue_layout" />
+
+        <include
+            android:id="@+id/skinGrey_RelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/skinBlue_RelativeLayout"
+            layout="@layout/skin_grey_layout" />
+
+        <include
+            android:id="@+id/skinWood_RelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/skinGrey_RelativeLayout"
+            layout="@layout/skin_wood_layout" />
+
+        <TextView
+            android:id="@+id/background_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingRight="25dp"
+            android:text="@string/Background"
+            android:textColor="@color/white"
+            android:textSize="@dimen/Font16sp" />
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/gpsInfoSeparator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/backgroundSkins_RelativeLayout"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        layout="@layout/divide_line"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/contentInfo_RelativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:layout_above="@id/gpsInfoSeparator"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:visibility="visible" >
+
+        <TextView
+            android:id="@+id/contentInfoLabel_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/GpsInfo"
+            android:textColor="@color/white"
+            android:textSize="@dimen/Font16sp" />
+
+        <CheckBox
+            android:id="@+id/contentInfo_CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:button="@drawable/btn_radio_holo_dark"
+            android:checked="true"
+            android:text="" />
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/toggleSeparator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/contentInfo_RelativeLayout"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        layout="@layout/divide_line" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/toggleSeparator"
+        android:layout_below="@id/activityTitleLabel_TextView"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:listSelector="@drawable/list_selector" >
+    </ListView>
+
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activityTitleLabel_TextView"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:text="@string/Empty"
+        android:textSize="@dimen/Font20sp" />
+
+</RelativeLayout>

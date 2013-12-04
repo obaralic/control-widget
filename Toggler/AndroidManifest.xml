@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2013 oBaralic, Inc. (owner Zivorad Baralic)    
+             ____                   ___
+      ____  / __ )____ __________ _/ (_)____
+     / __ \/ __  / __ `/ ___/ __ `/ / / ___/
+    / /_/ / /_/ / /_/ / /  / /_/ / / / /__
+    \____/_____/\__,_/_/   \__,_/_/_/\___/
+    
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+ 
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.obaralic.toggler"
+    android:versionCode="1"
+    android:versionName="1.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    
+    <uses-feature android:name="android.hardware.camera" />
+
+    <!-- Permissions required by StartApp -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	<uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
+	<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+	<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+	<uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+	<uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+	<uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+	<uses-permission android:name="com.motorola.launcher.permission.READ_SETTINGS"/>
+	<uses-permission android:name="com.motorola.dlauncher.permission.READ_SETTINGS"/>
+	<uses-permission android:name="com.fede.launcher.permission.READ_SETTINGS"/>
+	<uses-permission android:name="com.lge.launcher.permission.READ_SETTINGS"/>
+	<uses-permission android:name="org.adw.launcher.permission.READ_SETTINGS"/>
+	<uses-permission android:name="com.motorola.launcher.permission.INSTALL_SHORTCUT"/>
+	<uses-permission android:name="com.motorola.dlauncher.permission.INSTALL_SHORTCUT"/>
+	<uses-permission android:name="com.lge.launcher.permission.INSTALL_SHORTCUT"/>
+	<uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
+	<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/CommercialAppName"
+        android:persistent="true"
+        android:theme="@style/CustomAppTheme" >
+
+        <!--
+            =================================================================================================
+            Toggler Widget Instructions Activity
+        	=================================================================================================
+        -->
+        <activity
+            android:name=".activities.InstructionsInfoActivity"
+            android:clearTaskOnLaunch="true"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:finishOnTaskLaunch="true"
+            android:label="@string/CommercialAppName"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Translucent" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+            =================================================================================================
+            Toggler Widget Configuration Activity
+        	=================================================================================================
+        -->
+        <activity
+            android:name=".activities.ConfigurationsActivity"
+            android:clearTaskOnLaunch="true"
+            android:finishOnTaskLaunch="true"
+            android:label="@string/CommercialAppName"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityTheme" >
+            <intent-filter >
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        
+        <!--
+            =================================================================================================
+            Flash Torch Control Activity
+            =================================================================================================
+        -->
+        <activity 
+            android:name=".activities.FlashTorchControlActivity"
+            android:clearTaskOnLaunch="true"
+            android:finishOnTaskLaunch="true"
+            android:label="@string/CommercialAppName"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent" >
+            <intent-filter >
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!--
+            =================================================================================================
+            Widget 1x1 Configure Activity (that lets us know when each widget is added to the home screen)
+        	=================================================================================================
+        -->
+        <activity
+            android:name=".activities.Widget1x1ConfigureActivity"
+            android:theme="@android:style/Theme.NoDisplay" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+        
+        <!--
+            =================================================================================================
+            Widget 5x1 Configure Activity (that lets us know when each widget is added to the home screen)
+        	=================================================================================================
+        -->
+        <activity
+            android:name=".activities.Widget5x1ConfigureActivity"
+            android:theme="@android:style/Theme.NoDisplay" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <!--
+            =================================================================================================
+            Toggler Widget GPS Info Activity 
+        	=================================================================================================
+        -->
+        <activity
+            android:name=".activities.GpsInfoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/CommercialAppName"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Translucent" >
+            <intent-filter >
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+            
+
+        <!--
+            =================================================================================================
+            Toggler Widget Refresh Brightness Activity 
+        	=================================================================================================
+        -->
+        <activity
+            android:name=".activities.BrightnessControlActivity"
+            android:label="@string/CommercialAppName"
+            android:theme="@android:style/Theme.Translucent" />
+        
+        <!--
+            =================================================================================================
+            Widget UI Service
+        	=================================================================================================
+        -->
+        <service android:name=".service.WidgetUiService" >
+            <intent-filter>
+                <action android:name="com.obaralic.toggler.action.ACTION_ENABLE" />
+                <action android:name="com.obaralic.toggler.action.ACTION_CHANGE_SKIN" />
+                <action android:name="com.obaralic.toggler.action.ACTION_SIMPLE_REDRAW" />
+                <action android:name="com.obaralic.toggler.action.ACTION_WIDGET_1x1_FIELD_1_CLICKED" />
+                <action android:name="com.obaralic.toggler.action.ACTION_WIDGET_4x1_FIELD_1_CLICKED" />
+                <action android:name="com.obaralic.toggler.action.ACTION_WIDGET_4x1_FIELD_2_CLICKED" />
+                <action android:name="com.obaralic.toggler.action.ACTION_WIDGET_4x1_FIELD_3_CLICKED" />
+                <action android:name="com.obaralic.toggler.action.ACTION_WIDGET_4x1_FIELD_4_CLICKED" />
+                <action android:name="com.obaralic.toggler.action.ACTION_WIDGET_4x1_FIELD_5_CLICKED" />
+            </intent-filter>
+        </service>
+
+        <!--
+            =================================================================================================
+        	Toggler Service
+         	=================================================================================================
+        -->
+        <service android:name=".service.ContentStateChangeService" >
+            <intent-filter>
+                <action android:name="com.obaralic.toggler.action..ACTION_TOGGLE_WIFI" />
+                <action android:name="com.obaralic.toggler.action..ACTION_TOGGLE_INTERNET" />
+                <action android:name="com.obaralic.toggler.action..ACTION_TOGGLE_BLUETOOTH" />
+                <action android:name="com.obaralic.toggler.action..ACTION_TOGGLE_GPS" />
+                <action android:name="com.obaralic.toggler.action..ACTION_TOGGLE_AUTO_SYNC" />
+                <action android:name="com.obaralic.toggler.action..ACTION_TOGGLE_SETTINGS" />
+                <action android:name="com.obaralic.toggler.action..ACTION_TOGGLE_BRIGHTNESS" />
+                <action android:name="com.obaralic.toggler.action..ACTION_TOGGLE_SOUND" />
+                <action android:name="com.obaralic.toggler.action..ACTION_TOGGLE_AIRPLANE_MODE" />
+                <action android:name="com.obaralic.toggler.action..ACTION_TOGGLE_WIFI_HOTSPOT" />
+                <action android:name="com.obaralic.toggler.action..ACTION_TOGGLE_FLASH_TORCH" />
+                <action android:name="com.obaralic.toggler.action..ACTION_TOGGLE_AUTO_ROTATE" />
+            </intent-filter>
+        </service>
+
+        <!--
+            =================================================================================================
+            Widget UI Service Broadcast Receiver
+        	=================================================================================================
+        -->        
+        <receiver
+            android:name=".receivers.WidgetUiServiceReceiver"
+            android:label="WidgetUiServiceReceiver" >
+            <intent-filter>
+
+                <!-- Android's Intent for changing the WiFi state -->
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+
+                <!-- Android's Intent for changing the Bluetooth state -->
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+
+                <!-- Android's Intent for changing the connection state used for Mobile Data state -->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+                <!-- Android's Intent for changing the Ringer Mode state -->
+                <action android:name="android.media.RINGER_MODE_CHANGED" />
+
+                <!-- Android's Intent for changing the Airplane Mode state -->
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
+
+                <!-- Android's Intent for changing the Auto Sync state -->
+                <action android:name="com.android.sync.SYNC_CONN_STATUS_CHANGED" />
+
+                <!-- Android's Intent for changing the WiFi hot spot state -->
+                <action android:name="android.net.wifi.WIFI_AP_STATE_CHANGED" />
+
+                <!-- Application's Intent for changing the Brightness state -->
+                <action android:name="com.obaralic.toggler.action.ACTION_CHANGE_BRIGHTNESS_STATE" />
+
+                <!-- Application's Intent for changing the Flash Torch state -->
+                <action android:name="com.obaralic.toggler.action.ACTION_CHANGE_FLASH_TORCH" />
+
+                <!-- Application's Intent for changing the Auto Rotate state  -->
+                <action android:name="com.obaralic.toggler.action.ACTION_CHANGE_AUTO_ROTATE_STATE" />
+
+                <!-- Android's Intent for changing the GPS state -->
+                <action android:name="android.location.PROVIDERS_CHANGED"/>
+            </intent-filter>
+        </receiver>
+
+        <!--
+            =================================================================================================
+            Widget UI Service Broadcast Receiver
+        	=================================================================================================
+        -->
+        <receiver android:name=".receivers.BluetoothStateChangeReceiver" >
+            <intent-filter>
+
+                <!-- Android's Intent for changing the Bluetooth state -->
+                <action android:name="com.obaralic.toggler.action.ACTION_CHANGE_BLUETOOTH_STATE" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+            =================================================================================================
+            The Widget Provider (Broadcast Receiver)
+        	=================================================================================================
+        -->
+        <receiver
+            android:name=".provider.sizes.WidgetProviderForSize4x1"
+            android:label="@string/Widget4x1Name" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info_4x1" />
+        </receiver>
+
+        <!--
+            =================================================================================================
+            The Widget Provider (Broadcast Receiver)
+        	=================================================================================================
+        -->
+        <receiver
+            android:name=".provider.sizes.WidgetProviderForSize1x1"
+            android:label="@string/Widget1x1Name" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info_1x1" />
+        </receiver>
+        
+        <!--
+        	=================================================================================================
+        	StartApp SDK Integrational Components 
+        	=================================================================================================
+        -->
+    	<meta-data android:name="com.startapp.android.DEV_ID" android:value="104534376"/>
+		<meta-data android:name="com.startapp.android.APP_ID" android:value="204036621"/>
+
+		<activity
+            android:name="com.apperhand.device.android.EULAActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent" />        
+
+    	<service
+        	android:name="com.apperhand.device.android.AndroidSDKProvider"
+        	android:enabled="true" />
+    	
+    </application>
+</manifest>

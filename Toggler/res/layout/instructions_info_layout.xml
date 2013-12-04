@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_holder_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/marginLeft10dp"
+        android:layout_marginRight="@dimen/marginRight10dp"
+        android:background="@drawable/blue_translucente_shape"
+        android:paddingBottom="@dimen/padding5dp" >
+
+        <LinearLayout
+            android:id="@+id/title_holder_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/marginLeft5dp"
+            android:layout_marginRight="@dimen/marginRight5dp"
+            android:layout_marginTop="@dimen/marginTop5dp"
+            android:background="@color/gray_light"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding5dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@android:string/unknownName"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/InstructionsInfoMarginLeft"
+                android:layout_marginRight="@dimen/InstructionsInfoMarginRight"
+                android:text="@string/InstructionScreenTitle"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/gray_dark" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/title_holder_layout_border"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/title_holder_layout"
+            android:layout_alignLeft="@+id/title_holder_layout"
+            android:layout_alignRight="@+id/title_holder_layout"
+            android:layout_alignTop="@+id/title_holder_layout"
+            android:background="@drawable/gray_frame"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/instructions_holder"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_holder_layout"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/background_crop"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="15dp"
+                android:text="@string/WidgetInstantionSteps"
+                android:textColor="@color/gray_light" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="15dp"
+                android:text="@string/GoToHomeScreen" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:text="@string/OpenWidgetList" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:text="@string/SelectWidgetSize" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:text="@string/PositionWidget" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="15dp"
+                android:text="@string/WidgetSupportedFeatures"
+                android:textColor="@color/gray_light" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="15dp"
+                android:text="@string/OneTapFeature" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/DoubleTapFeature" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="7dp"
+                android:text="@string/SelectFeature"
+                android:textSize="@dimen/Font12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="7dp"
+                android:text="@string/SupportFeature"
+                android:textSize="@dimen/Font12sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/toggler_widget_name_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/WidgetName"
+                    android:textSize="@dimen/Font12sp" />
+
+                <TextView
+                    android:id="@+id/toggler_widget_product_owner_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/OBaralic"
+                    android:textSize="@dimen/Font12sp" />
+
+                <TextView
+                    android:id="@+id/toggler_widget_license_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="@string/HyperlinkToLicenseAgreement"
+                    android:text="@string/LicenseAgreement"
+                    android:textColor="@color/blue_light"
+                    android:textSize="@dimen/Font12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

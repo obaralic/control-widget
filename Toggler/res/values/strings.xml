@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2013 oBaralic, Ltd. (owner Zivorad Baralic)    
+             ____                   ___
+      ____  / __ )____ __________ _/ (_)____
+     / __ \/ __  / __ `/ ___/ __ `/ / / ___/
+    / /_/ / /_/ / /_/ / /  / /_/ / / / /__
+    \____/_____/\__,_/_/   \__,_/_/_/\___/
+    
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+ 
+ <resources>
+
+    <!-- Application Info Section -->
+    <string name="CommercialAppName">SmarT Widget</string>
+    <string name="WidgetName">SmarT Widget</string>
+    <string name="OBaralic">© 2013 oBaralic</string>
+    <string name="LicenseAgreement">License Agreement</string>
+    <string name="HyperlinkToLicenseAgreement">http://www.apache.org/licenses/LICENSE-2.0</string>
+
+    <!-- Widget Info Section -->
+    <string name="Widget1x1Name">SmarT Widget (1 x 1)</string>
+    <string name="Widget4x1Name">SmarT Widget (4 x 1)</string>
+
+    <!-- Widget Face Section -->
+    <string name="FaceTextGPS">GPS</string>
+    <string name="FaceTextWiFi">Wi-Fi</string>
+    <string name="FaceTextBluetooth">Bluetooth</string>
+    <string name="FaceTextInternet">Mobile Data</string>
+    <string name="FaceTextSettings">Settings</string>
+    <string name="FaceTextRoaming">Roaming</string>
+    <string name="FaceTextAutoSync">Auto-Sync</string>
+    <string name="FaceTextBrightness">Brightnes</string>
+    <string name="FaceTextSound">Ringer Mode</string>
+    <string name="FaceTextAirplaneMode">Airplane Mode</string>
+    <string name="FaceTextWiFiHotspot">Wi-Fi Hotspot</string>
+    <string name="FaceTextFlashTorch">LED Flash</string>
+    <string name="FaceTextAutoRotate">Auto Rotate</string>
+
+    <!-- Instruction Screen Section -->
+    <string name="InstructionScreenTitle"><b>Widget Information</b></string>
+    <string name="WidgetInstantionSteps"><u><b>Widget Instantiation Steps:</b></u></string>
+    <string name="GoToHomeScreen"><b>1.</b> Go to Home screen</string>
+    <string name="OpenWidgetList"><b>2.</b> Open widgets list</string>
+    <string name="SelectWidgetSize"><b>3.</b> Select wanted widget size</string>
+    <string name="PositionWidget"><b>4.</b> Position widget on Home screen</string>
+    <string name="WidgetSupportedFeatures"><u><b>Supported Features:</b></u></string>
+    <string name="OneTapFeature"><b>1.</b> Single tap to toggle</string>
+    <string name="DoubleTapFeature"><b>2.</b> Double tap to configure</string>
+    <string name="SelectFeature"><i> - It is possible to select one of the content toggles, and change widget\'s skin </i></string>
+    <string name="SupportFeature"><i> - In case of LED flash problems use <b>LED Flash Support</b></i></string>
+
+    <!-- GPS Screen Section -->
+    <string name="GpsInfoScreenTitle"><b>GPS Info</b></string>
+    <string name="GpsInfoMessage">Because of security issues we are not allowed to programmatically change GPS state.\nYou will be redirected to the settings screen where you can change GPS state manually.\n\n<i>Show me this dialog again.</i></string>
+    <string name="Yes"><b>Yes</b></string>
+    <string name="No"><b>No</b></string>
+
+    <!-- Configuration Screen Section -->
+    <string name="ConfigurationScreenTitle"><b>Toggle Configuration</b></string>
+    <string name="Background">Skins</string>
+    <string name="GpsInfo">Show GPS Info Dialog</string>
+    <string name="LedFlashInfo">Use LED Flash Support</string>
+
+    <!-- Toasts -->
+    <string name="FlashLightNotSupportedToast">Flash light torch mode is not supported</string>
+    <string name="CameraAlreadyInUseToast">Camera already in use</string>
+    <string name="Empty">Empty</string>
+
+</resources>

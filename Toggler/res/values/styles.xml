@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2013 oBaralic, Inc. (owner Zivorad Baralic)    
+             ____                   ___
+      ____  / __ )____ __________ _/ (_)____
+     / __ \/ __  / __ `/ ___/ __ `/ / / ___/
+    / /_/ / /_/ / /_/ / /  / /_/ / / / /__
+    \____/_____/\__,_/_/   \__,_/_/_/\___/
+    
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+ 
+ <resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="CustomAppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <!-- Custom Activity Theme -->
+    <style name="CustomActivityTheme" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!-- Custom Dialog Theme -->
+    <style name="CustomDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:textColor">@color/gray_light</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:button">@color/blue_light</item>
+    </style>
+
+    <!-- Custom Dialog Theme -->
+    <style name="InvisibleDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>     
+
+    <!-- Style for the dummy separators on widget face -->
+    <style name="StyleDummySeparator">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">5dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <!-- Style for the widget content holder layout -->
+    <style name="StyleWidgetContenHolder">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">20</item>
+    </style>
+
+    <!-- Style for the widget's left content state image -->
+    <style name="StyleWidgetContentStateLeft">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">5dp</item>
+        <item name="android:layout_marginLeft">3dp</item>
+        <item name="android:layout_marginRight">1dp</item>
+        <item name="android:contentDescription">@android:string/untitled</item>
+        <item name="android:src">@drawable/toggle_off</item>
+    </style>
+
+    <!-- Style for the widget's left content image holder -->
+    <style name="StyleWidgetContentHolderLeft">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginLeft">3dp</item>
+        <item name="android:layout_marginRight">1dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- Style for the widget's right content state image -->
+    <style name="StyleWidgetContentStateRight">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">5dp</item>
+        <item name="android:layout_marginRight">3dp</item>
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:contentDescription">@android:string/untitled</item>
+        <item name="android:src">@drawable/toggle_off</item>
+    </style>
+
+    <!-- Style for the widget's right content image holder -->
+    <style name="StyleWidgetContentHolderRight">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:layout_marginRight">3dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- Style for the widget's 5x1 center content state image -->
+    <style name="StyleWidgetContentStateCenter5x1">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">5dp</item>
+        <item name="android:layout_marginRight">1dp</item>
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:contentDescription">@android:string/untitled</item>
+        <item name="android:src">@drawable/toggle_off</item>
+    </style>
+
+    <!-- Style for the widget's 5x1 center content image holder -->
+    <style name="StyleWidgetContentHolderCenter5x1">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:layout_marginRight">1dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- Style for the widget's 1x1 center content state image -->
+    <style name="StyleWidgetContentStateCenter1x1">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">5dp</item>
+        <item name="android:layout_marginRight">3dp</item>
+        <item name="android:layout_marginLeft">3dp</item>
+        <item name="android:contentDescription">@android:string/untitled</item>
+        <item name="android:src">@drawable/toggle_off</item>
+    </style>
+
+    <!-- Style for the widget's 1x1 center content image holder -->
+    <style name="StyleWidgetContentHolderCenter1x1">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginLeft">3dp</item>
+        <item name="android:layout_marginRight">3dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- Style for the widget's content image -->
+    <style name="StyleWidgetContent">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/glass_selector_blue</item>
+        <item name="android:contentDescription">@android:string/untitled</item>
+    </style>
+
+</resources>

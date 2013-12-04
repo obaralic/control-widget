@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2013 oBaralic, Inc. (owner Zivorad Baralic)    
+             ____                   ___
+      ____  / __ )____ __________ _/ (_)____
+     / __ \/ __  / __ `/ ___/ __ `/ / / ___/
+    / /_/ / /_/ / /_/ / /  / /_/ / / / /__
+    \____/_____/\__,_/_/   \__,_/_/_/\___/
+    
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ -->
+
+ <resources>
+
+	<!-- Generally used margine and padding values -->
+	<dimen name="padding5dp">5dp</dimen>
+
+	<dimen name="marginLeft5dp">5dp</dimen>
+    <dimen name="marginRight5dp">5dp</dimen>
+    <dimen name="marginTop5dp">5dp</dimen>
+    <dimen name="marginBottom5dp">5dp</dimen>
+    <dimen name="margin10dp">10dp</dimen>     
+    <dimen name="marginLeft10dp">10dp</dimen>
+    <dimen name="marginRight10dp">10dp</dimen>
+    <dimen name="marginTop10dp">10dp</dimen>
+    <dimen name="marginBottom10dp">10dp</dimen>   
+
+    <!-- General purpose used dimensions -->
+    <dimen name="MinWidthWidget1x1">64dp</dimen>
+    <dimen name="MinHeightWidget1x1">64dp</dimen>
+	<dimen name="MinWidthWidget4x1">280dp</dimen>
+	<dimen name="MinHeightWidget4x1">64dp</dimen>	
+    <dimen name="WidgetPaddingDimensions">8dp</dimen>
+	<dimen name="ShapeCornersRadius">3dp</dimen>
+	<dimen name="ThumbnailFrameTickness">3dp</dimen>
+	<dimen name="DevideLineTickness">1px</dimen>
+
+	<!-- Gps info menu dimensions -->
+	<dimen name="GpsInfoLayoutHeight">200dp</dimen>
+	<dimen name="GpsInfoPaddingBottom">10dp</dimen>
+	<dimen name="GpsInfoPaddingTop">10dp</dimen>
+	<dimen name="GpsInfoPaddingLeft">15dp</dimen>	
+	<dimen name="GpsInfoMargineTop">20dp</dimen>
+	<dimen name="GpsInfoButtonHolderMargineTop">10dp</dimen>
+
+	<!-- Instructions info menu dimensions -->
+	<dimen name="InstructionsInfoPaddingBottom">10dp</dimen>
+	<dimen name="InstructionsInfoPaddingTop">10dp</dimen>
+	<dimen name="InstructionsInfoMarginLeft">10dp</dimen>
+	<dimen name="InstructionsInfoMarginRight">20dp</dimen>
+
+	<!-- Configurations info menu dimensions -->
+	<dimen name="RowContentInfoHeight">64dp</dimen>
+
+	<!-- Text font sizes -->
+	<dimen name="Font12sp">12sp</dimen>
+	<dimen name="Font15sp">15sp</dimen>
+	<dimen name="Font16sp">16sp</dimen>
+	<dimen name="Font20sp">20sp</dimen>
+</resources>
