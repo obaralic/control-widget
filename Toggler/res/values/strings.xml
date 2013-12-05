@@ -24,15 +24,15 @@
  <resources>
 
     <!-- Application Info Section -->
-    <string name="CommercialAppName">SmarT Widget</string>
-    <string name="WidgetName">SmarT Widget</string>
+    <string name="CommercialAppName">Smart Control</string>
+    <string name="WidgetName">Smart Control</string>
     <string name="OBaralic">© 2013 oBaralic</string>
     <string name="LicenseAgreement">License Agreement</string>
     <string name="HyperlinkToLicenseAgreement">http://www.apache.org/licenses/LICENSE-2.0</string>
 
     <!-- Widget Info Section -->
-    <string name="Widget1x1Name">SmarT Widget (1 x 1)</string>
-    <string name="Widget4x1Name">SmarT Widget (4 x 1)</string>
+    <string name="Widget1x1Name">Smart Control Small</string>
+    <string name="Widget4x1Name">Smart Control Large</string>
 
     <!-- Widget Face Section -->
     <string name="FaceTextGPS">GPS</string>

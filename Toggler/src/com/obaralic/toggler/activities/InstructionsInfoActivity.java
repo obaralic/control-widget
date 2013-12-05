@@ -33,7 +33,6 @@ import android.view.Window;
 import android.webkit.URLUtil;
 import android.widget.TextView;
 
-import com.apperhand.device.android.AndroidSDKProvider;
 import com.obaralic.toggler.R;
 import com.obaralic.toggler.activities.base.BaseActivity;
 import com.obaralic.toggler.utilities.analytics.AnalyticsFactory;
@@ -56,7 +55,6 @@ public class InstructionsInfoActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AndroidSDKProvider.initSDK(this);
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.instructions_info_layout);
