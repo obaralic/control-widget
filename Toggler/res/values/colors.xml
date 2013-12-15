@@ -22,7 +22,7 @@
  -->
  
 <resources>
-	
+    
     <color name="black">#000000</color>
     <color name="gray_light">#dedede</color>
     <color name="gray_translucent">#7f000000</color>

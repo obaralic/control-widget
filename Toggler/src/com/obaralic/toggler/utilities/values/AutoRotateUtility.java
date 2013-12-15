@@ -34,57 +34,57 @@ import com.obaralic.toggler.utilities.debug.LogUtil;
  */
 public class AutoRotateUtility {
 
-	private static final String TAG = LogUtil.getTag(AutoRotateUtility.class);
-	
-	/**
+    private static final String TAG = LogUtil.getTag(AutoRotateUtility.class);
+    
+    /**
      * Constant used  as action for changing auto rotate state.
      */
-	public static final String ACTION_CHANGE_AUTO_ROTATE_STATE = "com.obaralic.toggler.action.ACTION_CHANGE_AUTO_ROTATE_STATE";
+    public static final String ACTION_CHANGE_AUTO_ROTATE_STATE = "com.obaralic.toggler.action.ACTION_CHANGE_AUTO_ROTATE_STATE";
 
-	/**
+    /**
      * Auto rotate mode disabled.
      */
-	public static final int AUTO_ROTATE_DISABLED = 0;
-	
-	/**
+    public static final int AUTO_ROTATE_DISABLED = 0;
+    
+    /**
      * Auto rotate mode enabled.
      */
-	public static final int AUTO_ROTATE_ENABLED = 1;
-	
-	/**
+    public static final int AUTO_ROTATE_ENABLED = 1;
+    
+    /**
      * Check if auto rotate is enabled. 
      */
-	public static boolean isAutoRotateEnabled(Context context) {
-		boolean isEnabled = false;
-		
-		try {
-			isEnabled =  (Settings.System.getInt(context.getContentResolver(), Settings.System.ACCELEROMETER_ROTATION) != 0) ? true : false;
-			
-		} catch (SettingNotFoundException e) {
-			LogUtil.w(TAG, LogUtil.getStackTraceString(e));
-		}
-		
-		return isEnabled;
-	}
+    public static boolean isAutoRotateEnabled(Context context) {
+        boolean isEnabled = false;
+        
+        try {
+            isEnabled =  (Settings.System.getInt(context.getContentResolver(), Settings.System.ACCELEROMETER_ROTATION) != 0) ? true : false;
+            
+        } catch (SettingNotFoundException e) {
+            LogUtil.w(TAG, LogUtil.getStackTraceString(e));
+        }
+        
+        return isEnabled;
+    }
 
-	/**
+    /**
      * Set auto rotate to the given state.
      */
-	public static void setAutoRotateEnabled(Context context, boolean isEnabled) {
-		
-		boolean isAutoRotateEnabled = isAutoRotateEnabled(context);
+    public static void setAutoRotateEnabled(Context context, boolean isEnabled) {
+        
+        boolean isAutoRotateEnabled = isAutoRotateEnabled(context);
 
-		if ((isAutoRotateEnabled && isEnabled) || (!isAutoRotateEnabled && !isEnabled)) {
-			return;
-		}
-		int value = isEnabled ? 1 : 0;
-		try {
-			Settings.System.putInt(context.getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, value);
-						
-		} catch (Exception e) {
-			LogUtil.w(TAG, LogUtil.getStackTraceString(e));
-		}
-		
-	}
+        if ((isAutoRotateEnabled && isEnabled) || (!isAutoRotateEnabled && !isEnabled)) {
+            return;
+        }
+        int value = isEnabled ? 1 : 0;
+        try {
+            Settings.System.putInt(context.getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, value);
+                        
+        } catch (Exception e) {
+            LogUtil.w(TAG, LogUtil.getStackTraceString(e));
+        }
+        
+    }
 
 }

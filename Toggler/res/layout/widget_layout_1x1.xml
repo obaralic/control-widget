@@ -68,7 +68,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:src="@drawable/toggle_off" />        
-	</LinearLayout>
+    </LinearLayout>
     
     <LinearLayout
         android:id="@+id/toggler_content_holder_LinearLayout"

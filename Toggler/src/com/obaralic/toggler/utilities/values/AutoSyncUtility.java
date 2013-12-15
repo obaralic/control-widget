@@ -33,51 +33,51 @@ import com.obaralic.toggler.utilities.debug.LogUtil;
  */
 public class AutoSyncUtility {
 
-	private static final String TAG = LogUtil.getTag(AutoSyncUtility.class);
+    private static final String TAG = LogUtil.getTag(AutoSyncUtility.class);
 
-	/**
+    /**
      * Constant used  as action for changing auto sync state.
      */
-	public static final String ACTION_CHANGE_AUTO_SYNC_STATE = "com.android.sync.SYNC_CONN_STATUS_CHANGED";
+    public static final String ACTION_CHANGE_AUTO_SYNC_STATE = "com.android.sync.SYNC_CONN_STATUS_CHANGED";
 
-	/**
+    /**
      * Auto sync mode disabled.
      */
-	public static final int AUTO_SYNC_DISABLED = 0;
-	
-	/**
+    public static final int AUTO_SYNC_DISABLED = 0;
+    
+    /**
      * Auto sync mode enabled.
      */
-	public static final int AUTO_SYNC_ENABLED = 1;
+    public static final int AUTO_SYNC_ENABLED = 1;
 
-	/**
+    /**
      * Set auto sync to the given state.
      */
-	public static void setEnabled(Context context, boolean isEnabled) {
-		LogUtil.d(TAG, "Called setEnabled");
+    public static void setEnabled(Context context, boolean isEnabled) {
+        LogUtil.d(TAG, "Called setEnabled");
 
-		try {
-			ContentResolver.setMasterSyncAutomatically(isEnabled);
-		} catch (Exception exception) {
-			LogUtil.e(TAG, LogUtil.getStackTraceString(exception));
-		}
-	}
+        try {
+            ContentResolver.setMasterSyncAutomatically(isEnabled);
+        } catch (Exception exception) {
+            LogUtil.e(TAG, LogUtil.getStackTraceString(exception));
+        }
+    }
 
-	
-	/**
+    
+    /**
      * Check if auto sync is enabled. 
      */
-	public static boolean isEnabled(Context context) {
-		LogUtil.d(TAG, "Called isEnabled");
-		boolean isEnabled = false;
-		try {
-			isEnabled = ContentResolver.getMasterSyncAutomatically();
+    public static boolean isEnabled(Context context) {
+        LogUtil.d(TAG, "Called isEnabled");
+        boolean isEnabled = false;
+        try {
+            isEnabled = ContentResolver.getMasterSyncAutomatically();
 
-		} catch (Exception exception) {
+        } catch (Exception exception) {
             LogUtil.e(TAG, LogUtil.getStackTraceString(exception));
-		}
+        }
 
-		return isEnabled;
-	}
+        return isEnabled;
+    }
 
 }

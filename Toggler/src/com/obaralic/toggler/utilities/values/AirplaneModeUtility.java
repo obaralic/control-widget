@@ -37,81 +37,81 @@ import com.obaralic.toggler.utilities.general.UnsupportedAndroidPlatformVersionR
 @SuppressLint("NewApi")
 public class AirplaneModeUtility {
 
-	private static final String TAG = LogUtil.getTag(AirplaneModeUtility.class);
+    private static final String TAG = LogUtil.getTag(AirplaneModeUtility.class);
 
-	/**
-	 * Constant used for storing airplane mode state.
-	 */
-	public static final String EXTRA_AIRPLANE_MODE = "com.obaralic.toggler.extra.EXTRA_AIRPLANE_MODE";
-	
-	/**
-	 * Airplane mode disabled.
-	 */
-	public static final int AIRPLANE_MODE_DISABLED = 0;
-	
-	/**
+    /**
+     * Constant used for storing airplane mode state.
+     */
+    public static final String EXTRA_AIRPLANE_MODE = "com.obaralic.toggler.extra.EXTRA_AIRPLANE_MODE";
+    
+    /**
+     * Airplane mode disabled.
+     */
+    public static final int AIRPLANE_MODE_DISABLED = 0;
+    
+    /**
      * Airplane mode enabled.
      */
-	public static final int AIRPLANE_MODE_ENABLED = 1;
+    public static final int AIRPLANE_MODE_ENABLED = 1;
 
-	
-	/**
-	 * Check if airplane mode is enabled. 
-	 */
-	@SuppressWarnings("deprecation")
-	public static boolean isAirplaneModeOn(Context context) {
-		LogUtil.d(TAG, "Called isAirplaneModeOn");
+    
+    /**
+     * Check if airplane mode is enabled. 
+     */
+    @SuppressWarnings("deprecation")
+    public static boolean isAirplaneModeOn(Context context) {
+        LogUtil.d(TAG, "Called isAirplaneModeOn");
 
-		boolean isEnabled = false;
-		try {
-			if (!UnsupportedAndroidPlatformVersionResolver.isAndroidApiLevel_17_OrHigher()) {
-				isEnabled = Settings.System.getInt(context.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 0) != 0;
-				LogUtil.i(TAG, "Used API is less than 17");
-				
-			} else {
-				LogUtil.i(TAG, "Used API is 17 or higher");
-				isEnabled = Settings.Global.getInt(context.getContentResolver(), Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
-			}
+        boolean isEnabled = false;
+        try {
+            if (!UnsupportedAndroidPlatformVersionResolver.isAndroidApiLevel_17_OrHigher()) {
+                isEnabled = Settings.System.getInt(context.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 0) != 0;
+                LogUtil.i(TAG, "Used API is less than 17");
+                
+            } else {
+                LogUtil.i(TAG, "Used API is 17 or higher");
+                isEnabled = Settings.Global.getInt(context.getContentResolver(), Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+            }
 
-		} catch (Exception exception) {
-			LogUtil.e(TAG, LogUtil.getStackTraceString(exception));
-		}
-
-		return isEnabled;
-	}
-
-	
-	/**
-	 * Set airplane mode to the given state.
-	 */
-	@SuppressWarnings("deprecation")
-	public static void setAirplaneMode(Context context, boolean isEnabled) {
-		LogUtil.d(TAG, "Called setAirplaneMode");
-
-		boolean isAirplaneModeOn = isAirplaneModeOn(context);
-
-		if ((isAirplaneModeOn && isEnabled) || (!isAirplaneModeOn && !isEnabled)) {
-			return;
-		}
-
-		int value = isEnabled ? 1 : 0;
-		try {
-			if (!UnsupportedAndroidPlatformVersionResolver.isAndroidApiLevel_17_OrHigher()) {
-				Settings.System.putInt(context.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, value);
-				LogUtil.i(TAG, "Used API is less than 17");
-				
-			} else {
-				Settings.Global.putInt(context.getContentResolver(), Settings.Global.AIRPLANE_MODE_ON, value);
-				LogUtil.i(TAG, "Used API is 17 or higher");			
-			}
-
-			Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-			intent.putExtra(EXTRA_AIRPLANE_MODE, isEnabled);
-			context.sendBroadcast(intent);
-
-		} catch (Exception exception) {
+        } catch (Exception exception) {
             LogUtil.e(TAG, LogUtil.getStackTraceString(exception));
-		}
-	}
+        }
+
+        return isEnabled;
+    }
+
+    
+    /**
+     * Set airplane mode to the given state.
+     */
+    @SuppressWarnings("deprecation")
+    public static void setAirplaneMode(Context context, boolean isEnabled) {
+        LogUtil.d(TAG, "Called setAirplaneMode");
+
+        boolean isAirplaneModeOn = isAirplaneModeOn(context);
+
+        if ((isAirplaneModeOn && isEnabled) || (!isAirplaneModeOn && !isEnabled)) {
+            return;
+        }
+
+        int value = isEnabled ? 1 : 0;
+        try {
+            if (!UnsupportedAndroidPlatformVersionResolver.isAndroidApiLevel_17_OrHigher()) {
+                Settings.System.putInt(context.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, value);
+                LogUtil.i(TAG, "Used API is less than 17");
+                
+            } else {
+                Settings.Global.putInt(context.getContentResolver(), Settings.Global.AIRPLANE_MODE_ON, value);
+                LogUtil.i(TAG, "Used API is 17 or higher");            
+            }
+
+            Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+            intent.putExtra(EXTRA_AIRPLANE_MODE, isEnabled);
+            context.sendBroadcast(intent);
+
+        } catch (Exception exception) {
+            LogUtil.e(TAG, LogUtil.getStackTraceString(exception));
+        }
+    }
 
 }

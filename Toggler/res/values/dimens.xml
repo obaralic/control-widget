@@ -23,10 +23,10 @@
 
  <resources>
 
-	<!-- Generally used margine and padding values -->
-	<dimen name="padding5dp">5dp</dimen>
+    <!-- Generally used margine and padding values -->
+    <dimen name="padding5dp">5dp</dimen>
 
-	<dimen name="marginLeft5dp">5dp</dimen>
+    <dimen name="marginLeft5dp">5dp</dimen>
     <dimen name="marginRight5dp">5dp</dimen>
     <dimen name="marginTop5dp">5dp</dimen>
     <dimen name="marginBottom5dp">5dp</dimen>
@@ -39,33 +39,33 @@
     <!-- General purpose used dimensions -->
     <dimen name="MinWidthWidget1x1">64dp</dimen>
     <dimen name="MinHeightWidget1x1">64dp</dimen>
-	<dimen name="MinWidthWidget4x1">280dp</dimen>
-	<dimen name="MinHeightWidget4x1">64dp</dimen>	
+    <dimen name="MinWidthWidget4x1">280dp</dimen>
+    <dimen name="MinHeightWidget4x1">64dp</dimen>    
     <dimen name="WidgetPaddingDimensions">8dp</dimen>
-	<dimen name="ShapeCornersRadius">3dp</dimen>
-	<dimen name="ThumbnailFrameTickness">3dp</dimen>
-	<dimen name="DevideLineTickness">1px</dimen>
+    <dimen name="ShapeCornersRadius">3dp</dimen>
+    <dimen name="ThumbnailFrameTickness">3dp</dimen>
+    <dimen name="DevideLineTickness">1px</dimen>
 
-	<!-- Gps info menu dimensions -->
-	<dimen name="GpsInfoLayoutHeight">200dp</dimen>
-	<dimen name="GpsInfoPaddingBottom">10dp</dimen>
-	<dimen name="GpsInfoPaddingTop">10dp</dimen>
-	<dimen name="GpsInfoPaddingLeft">15dp</dimen>	
-	<dimen name="GpsInfoMargineTop">20dp</dimen>
-	<dimen name="GpsInfoButtonHolderMargineTop">10dp</dimen>
+    <!-- Gps info menu dimensions -->
+    <dimen name="GpsInfoLayoutHeight">200dp</dimen>
+    <dimen name="GpsInfoPaddingBottom">10dp</dimen>
+    <dimen name="GpsInfoPaddingTop">10dp</dimen>
+    <dimen name="GpsInfoPaddingLeft">15dp</dimen>    
+    <dimen name="GpsInfoMargineTop">20dp</dimen>
+    <dimen name="GpsInfoButtonHolderMargineTop">10dp</dimen>
 
-	<!-- Instructions info menu dimensions -->
-	<dimen name="InstructionsInfoPaddingBottom">10dp</dimen>
-	<dimen name="InstructionsInfoPaddingTop">10dp</dimen>
-	<dimen name="InstructionsInfoMarginLeft">10dp</dimen>
-	<dimen name="InstructionsInfoMarginRight">20dp</dimen>
+    <!-- Instructions info menu dimensions -->
+    <dimen name="InstructionsInfoPaddingBottom">10dp</dimen>
+    <dimen name="InstructionsInfoPaddingTop">10dp</dimen>
+    <dimen name="InstructionsInfoMarginLeft">10dp</dimen>
+    <dimen name="InstructionsInfoMarginRight">20dp</dimen>
 
-	<!-- Configurations info menu dimensions -->
-	<dimen name="RowContentInfoHeight">64dp</dimen>
+    <!-- Configurations info menu dimensions -->
+    <dimen name="RowContentInfoHeight">64dp</dimen>
 
-	<!-- Text font sizes -->
-	<dimen name="Font12sp">12sp</dimen>
-	<dimen name="Font15sp">15sp</dimen>
-	<dimen name="Font16sp">16sp</dimen>
-	<dimen name="Font20sp">20sp</dimen>
+    <!-- Text font sizes -->
+    <dimen name="Font12sp">12sp</dimen>
+    <dimen name="Font15sp">15sp</dimen>
+    <dimen name="Font16sp">16sp</dimen>
+    <dimen name="Font20sp">20sp</dimen>
 </resources>

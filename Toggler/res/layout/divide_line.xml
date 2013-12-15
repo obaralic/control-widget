@@ -31,5 +31,5 @@
         android:layout_width="fill_parent"
         android:layout_height="@dimen/DevideLineTickness"
         android:background="@drawable/divide_line" />
-	
+    
 </LinearLayout>

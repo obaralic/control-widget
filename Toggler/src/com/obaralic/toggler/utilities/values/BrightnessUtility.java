@@ -36,132 +36,132 @@ import com.obaralic.toggler.utilities.debug.LogUtil;
  */
 public class BrightnessUtility {
 
-	private static final String TAG = LogUtil.getTag(BrightnessUtility.class);
+    private static final String TAG = LogUtil.getTag(BrightnessUtility.class);
 
-	/**
+    /**
      * Constant used  as action for changing brightness state.
      */
-	public static final String ACTION_CHANGE_BRIGHTNESS_STATE = "com.obaralic.toggler.action.ACTION_CHANGE_BRIGHTNESS_STATE";
-	
-	/**
+    public static final String ACTION_CHANGE_BRIGHTNESS_STATE = "com.obaralic.toggler.action.ACTION_CHANGE_BRIGHTNESS_STATE";
+    
+    /**
      * Constant used for storing brightness state.
      */
-	public static final String EXTRA_CHANGE_BRIGHTNESS_STATE = "com.obaralic.toggler.extra.EXTRA_CHANGE_BRIGHTNESS_STATE";
-	
-	public static final int BRIGHTNESS_LEVEL_LOW = 30;
-	public static final int BRIGHTNESS_LEVEL_MEDIUM = 102;
-	public static final int BRIGHTNESS_LEVEL_HIGH = 255;
-	public static final int MAX_BRIGHTNESS_LEVLE = 255;
-	public static final int REFRESH_SCREEN_DELAY = 500;
-	public static final int BRIGHTNESS_AUTO = 0;
-	public static final int BRIGHTNESS_LOW = 1;
-	public static final int BRIGHTNESS_MEDIUM = 2;
-	public static final int BRIGHTNESS_HIGH = 3;	
-	
-	public static final int NUMBER_OF_BRIGHTNESS_MODES = 4;
-	
-	/**
+    public static final String EXTRA_CHANGE_BRIGHTNESS_STATE = "com.obaralic.toggler.extra.EXTRA_CHANGE_BRIGHTNESS_STATE";
+    
+    public static final int BRIGHTNESS_LEVEL_LOW = 30;
+    public static final int BRIGHTNESS_LEVEL_MEDIUM = 102;
+    public static final int BRIGHTNESS_LEVEL_HIGH = 255;
+    public static final int MAX_BRIGHTNESS_LEVLE = 255;
+    public static final int REFRESH_SCREEN_DELAY = 500;
+    public static final int BRIGHTNESS_AUTO = 0;
+    public static final int BRIGHTNESS_LOW = 1;
+    public static final int BRIGHTNESS_MEDIUM = 2;
+    public static final int BRIGHTNESS_HIGH = 3;    
+    
+    public static final int NUMBER_OF_BRIGHTNESS_MODES = 4;
+    
+    /**
      * Read brightness mode.
      */
-	public static int getBrightnessMode(Context context) {
-		LogUtil.d(TAG, "Caled getBrightnessMode");
+    public static int getBrightnessMode(Context context) {
+        LogUtil.d(TAG, "Caled getBrightnessMode");
 
-		int brightnessMode = BRIGHTNESS_MEDIUM;
+        int brightnessMode = BRIGHTNESS_MEDIUM;
 
-		try {
-			int brightnessLevel = Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
-			int isAutoBrightnesMode = Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
+        try {
+            int brightnessLevel = Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
+            int isAutoBrightnesMode = Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
 
-			if (brightnessLevel <= BRIGHTNESS_LEVEL_LOW) {
-				brightnessMode = BRIGHTNESS_LOW;
+            if (brightnessLevel <= BRIGHTNESS_LEVEL_LOW) {
+                brightnessMode = BRIGHTNESS_LOW;
 
-			} else if (brightnessLevel > BRIGHTNESS_LEVEL_LOW && brightnessLevel <= BRIGHTNESS_LEVEL_MEDIUM) {
-				brightnessMode = BRIGHTNESS_MEDIUM;
+            } else if (brightnessLevel > BRIGHTNESS_LEVEL_LOW && brightnessLevel <= BRIGHTNESS_LEVEL_MEDIUM) {
+                brightnessMode = BRIGHTNESS_MEDIUM;
 
-			} else if (brightnessLevel > BRIGHTNESS_LEVEL_MEDIUM && brightnessLevel <= BRIGHTNESS_LEVEL_HIGH) {
-				brightnessMode = BRIGHTNESS_HIGH;
-			}
+            } else if (brightnessLevel > BRIGHTNESS_LEVEL_MEDIUM && brightnessLevel <= BRIGHTNESS_LEVEL_HIGH) {
+                brightnessMode = BRIGHTNESS_HIGH;
+            }
 
-			brightnessMode = (isAutoBrightnesMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) ? BRIGHTNESS_AUTO : brightnessMode;
+            brightnessMode = (isAutoBrightnesMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) ? BRIGHTNESS_AUTO : brightnessMode;
 
-		} catch (SettingNotFoundException exception) {
-			LogUtil.e(TAG, LogUtil.getStackTraceString(exception));
+        } catch (SettingNotFoundException exception) {
+            LogUtil.e(TAG, LogUtil.getStackTraceString(exception));
 
-		} catch (Exception exception) {
-			LogUtil.e(TAG, LogUtil.getStackTraceString(exception));
-		}
+        } catch (Exception exception) {
+            LogUtil.e(TAG, LogUtil.getStackTraceString(exception));
+        }
 
-		return brightnessMode;
-	}
+        return brightnessMode;
+    }
 
-	/**
+    /**
      * Read brightness level.
      */
-	public static float getBrightnessLevel(Context context) {
-		LogUtil.d(TAG, "Caled getBrightnessLevel");
-		
-		int brightnessMode = getBrightnessMode(context);
-		int brightnessLevel;
+    public static float getBrightnessLevel(Context context) {
+        LogUtil.d(TAG, "Caled getBrightnessLevel");
+        
+        int brightnessMode = getBrightnessMode(context);
+        int brightnessLevel;
 
-		switch (brightnessMode) {
-		case BRIGHTNESS_AUTO:
-			brightnessLevel = BRIGHTNESS_LEVEL_MEDIUM;
-			break;
-		case BRIGHTNESS_LOW:
-			brightnessLevel = BRIGHTNESS_LEVEL_LOW;
-			break;
-		case BRIGHTNESS_MEDIUM:
-			brightnessLevel = BRIGHTNESS_LEVEL_MEDIUM;
-			break;
-		case BRIGHTNESS_HIGH:
-			brightnessLevel = BRIGHTNESS_LEVEL_HIGH;
-			break;
-		default:
-			brightnessLevel = BRIGHTNESS_LEVEL_HIGH;
-			break;
-		}
+        switch (brightnessMode) {
+        case BRIGHTNESS_AUTO:
+            brightnessLevel = BRIGHTNESS_LEVEL_MEDIUM;
+            break;
+        case BRIGHTNESS_LOW:
+            brightnessLevel = BRIGHTNESS_LEVEL_LOW;
+            break;
+        case BRIGHTNESS_MEDIUM:
+            brightnessLevel = BRIGHTNESS_LEVEL_MEDIUM;
+            break;
+        case BRIGHTNESS_HIGH:
+            brightnessLevel = BRIGHTNESS_LEVEL_HIGH;
+            break;
+        default:
+            brightnessLevel = BRIGHTNESS_LEVEL_HIGH;
+            break;
+        }
 
-		return (float) brightnessLevel / MAX_BRIGHTNESS_LEVLE;
-	}
+        return (float) brightnessLevel / MAX_BRIGHTNESS_LEVLE;
+    }
 
-	/**
+    /**
      * Set brightness to the given mode.
      */
-	public static void setBrightnessMode(Activity context, int brightnessMode) {
-		LogUtil.d(TAG, "Caled setBrightnessMode");
+    public static void setBrightnessMode(Activity context, int brightnessMode) {
+        LogUtil.d(TAG, "Caled setBrightnessMode");
 
-		float backLightValuePercentage = BrightnessUtility.getBrightnessLevel(context);
-		WindowManager.LayoutParams layoutParams = context.getWindow().getAttributes();
-		layoutParams.screenBrightness = backLightValuePercentage;
-		context.getWindow().setAttributes(layoutParams);
-		
-		try {			
-			
-			if (brightnessMode == BRIGHTNESS_LOW) {
-				Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, BRIGHTNESS_LEVEL_LOW);
-				Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+        float backLightValuePercentage = BrightnessUtility.getBrightnessLevel(context);
+        WindowManager.LayoutParams layoutParams = context.getWindow().getAttributes();
+        layoutParams.screenBrightness = backLightValuePercentage;
+        context.getWindow().setAttributes(layoutParams);
+        
+        try {            
+            
+            if (brightnessMode == BRIGHTNESS_LOW) {
+                Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, BRIGHTNESS_LEVEL_LOW);
+                Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
 
-			} else if (brightnessMode == BRIGHTNESS_MEDIUM) {
-				Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, BRIGHTNESS_LEVEL_MEDIUM);
-				Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+            } else if (brightnessMode == BRIGHTNESS_MEDIUM) {
+                Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, BRIGHTNESS_LEVEL_MEDIUM);
+                Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
 
-			} else if (brightnessMode == BRIGHTNESS_HIGH) {
-				Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, BRIGHTNESS_LEVEL_HIGH);
-				Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+            } else if (brightnessMode == BRIGHTNESS_HIGH) {
+                Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, BRIGHTNESS_LEVEL_HIGH);
+                Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
 
-			} else if (brightnessMode == BRIGHTNESS_AUTO) {
-				Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, BRIGHTNESS_LEVEL_MEDIUM);
-				Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
+            } else if (brightnessMode == BRIGHTNESS_AUTO) {
+                Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, BRIGHTNESS_LEVEL_MEDIUM);
+                Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
 
-			}
+            }
 
-		} catch (Exception exception) {
+        } catch (Exception exception) {
             LogUtil.e(TAG, LogUtil.getStackTraceString(exception));
-		}
+        }
 
-	}
-	
-	public static String valueOf(int state) {
+    }
+    
+    public static String valueOf(int state) {
         String value = null;
         switch (state) {
         case BRIGHTNESS_AUTO:

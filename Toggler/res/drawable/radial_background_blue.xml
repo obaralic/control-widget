@@ -23,7 +23,7 @@
  
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>        
-		<shape>
+        <shape>
             <gradient 
                 android:endColor="@color/gray_translucent"
                 android:gradientRadius="500"

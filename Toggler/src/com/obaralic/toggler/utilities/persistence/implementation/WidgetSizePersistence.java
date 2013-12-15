@@ -46,32 +46,32 @@ public class WidgetSizePersistence {
         private static final int SELECTED_WIDGET_SIZE = WidgetSizeType.ONE.getWidgetSizeId();
     }
 
-	private static WidgetSizePersistence sInstance;
+    private static WidgetSizePersistence sInstance;
 
-	private WidgetSizePersistence() {
-	}
+    private WidgetSizePersistence() {
+    }
 
-	public static WidgetSizePersistence getInstance() {
-		if (sInstance == null) {
-			sInstance = new WidgetSizePersistence();
-		}
-		return sInstance;
-	}
+    public static WidgetSizePersistence getInstance() {
+        if (sInstance == null) {
+            sInstance = new WidgetSizePersistence();
+        }
+        return sInstance;
+    }
 
-	/**
-	 * Retrieves the currently selected widget size.
-	 */
-	public int getWidgetSize(Context context) {
-		PersistenceInterface persistenceInterface = PersistenceFactory.get();
-		return persistenceInterface.getInt(context, PersistenceKeys.SELECTED_WIDGET_SIZE, PersistenceDefaultValues.SELECTED_WIDGET_SIZE);
-	}
+    /**
+     * Retrieves the currently selected widget size.
+     */
+    public int getWidgetSize(Context context) {
+        PersistenceInterface persistenceInterface = PersistenceFactory.get();
+        return persistenceInterface.getInt(context, PersistenceKeys.SELECTED_WIDGET_SIZE, PersistenceDefaultValues.SELECTED_WIDGET_SIZE);
+    }
 
-	/**
-	 * Sets the selected widget size to be one of the values in {@link WidgetSizeType} constants.
-	 */
-	public void setWidgetSize(Context context, int widgetSize) {
-		PersistenceInterface persistenceInterface = PersistenceFactory.get();
-		persistenceInterface.putInt(context, PersistenceKeys.SELECTED_WIDGET_SIZE, widgetSize);
-	}
+    /**
+     * Sets the selected widget size to be one of the values in {@link WidgetSizeType} constants.
+     */
+    public void setWidgetSize(Context context, int widgetSize) {
+        PersistenceInterface persistenceInterface = PersistenceFactory.get();
+        persistenceInterface.putInt(context, PersistenceKeys.SELECTED_WIDGET_SIZE, widgetSize);
+    }
 
 }

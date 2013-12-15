@@ -36,48 +36,48 @@ import com.obaralic.toggler.utilities.persistence.PersistenceInterface;
 public class ClickedFieldTypePersistence {
 
     private static class PersistenceKeys {
-		private static final String SELECTED_WIDGET_FIELD = "SELECTED_WIDGET_FIELD";
-	}
+        private static final String SELECTED_WIDGET_FIELD = "SELECTED_WIDGET_FIELD";
+    }
 
-	private static class PersistenceDefaultValues {
-		private static final int SELECTED_WIDGET_FIELD = FieldType.ONE.getFieldPosition();
-	}
+    private static class PersistenceDefaultValues {
+        private static final int SELECTED_WIDGET_FIELD = FieldType.ONE.getFieldPosition();
+    }
 
-	private static ClickedFieldTypePersistence sInstance;
+    private static ClickedFieldTypePersistence sInstance;
 
-	private ClickedFieldTypePersistence() {
-	}
+    private ClickedFieldTypePersistence() {
+    }
 
-	public static ClickedFieldTypePersistence getInstance() {
-		if (sInstance == null) {
-			sInstance = new ClickedFieldTypePersistence();
-		}
-		return sInstance;
-	}
+    public static ClickedFieldTypePersistence getInstance() {
+        if (sInstance == null) {
+            sInstance = new ClickedFieldTypePersistence();
+        }
+        return sInstance;
+    }
 
-	/**
-	 * Retrieves the currently selected widget field.
-	 * 
-	 * @param context
-	 *            The Context of the caller
-	 * @return The current selected widget field (one of the constants in {@link WidgetFieldType})
-	 */
-	public int getWidgetFieldOrder(Context context) {
-		PersistenceInterface persistenceInterface = PersistenceFactory.get();
-		return persistenceInterface.getInt(context, PersistenceKeys.SELECTED_WIDGET_FIELD, PersistenceDefaultValues.SELECTED_WIDGET_FIELD);
-	}
+    /**
+     * Retrieves the currently selected widget field.
+     * 
+     * @param context
+     *            The Context of the caller
+     * @return The current selected widget field (one of the constants in {@link WidgetFieldType})
+     */
+    public int getWidgetFieldOrder(Context context) {
+        PersistenceInterface persistenceInterface = PersistenceFactory.get();
+        return persistenceInterface.getInt(context, PersistenceKeys.SELECTED_WIDGET_FIELD, PersistenceDefaultValues.SELECTED_WIDGET_FIELD);
+    }
 
-	/**
-	 * Sets the selected widget field.
-	 * 
-	 * @param context
-	 *            The Context of the caller
-	 * @param layoutType
-	 *            The widget field type (one of the constants in {@link WidgetFieldType})
-	 */
-	public void setWidgetFieldOrder(Context context, int widgetSize) {
-		PersistenceInterface persistenceInterface = PersistenceFactory.get();
-		persistenceInterface.putInt(context, PersistenceKeys.SELECTED_WIDGET_FIELD, widgetSize);
-	}
+    /**
+     * Sets the selected widget field.
+     * 
+     * @param context
+     *            The Context of the caller
+     * @param layoutType
+     *            The widget field type (one of the constants in {@link WidgetFieldType})
+     */
+    public void setWidgetFieldOrder(Context context, int widgetSize) {
+        PersistenceInterface persistenceInterface = PersistenceFactory.get();
+        persistenceInterface.putInt(context, PersistenceKeys.SELECTED_WIDGET_FIELD, widgetSize);
+    }
 
 }
