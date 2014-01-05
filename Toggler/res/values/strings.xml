@@ -64,7 +64,7 @@
 
     <!-- GPS Screen Section -->
     <string name="GpsInfoScreenTitle"><b>GPS Info</b></string>
-    <string name="GpsInfoMessage">Because of security issues we are not allowed to programmatically change GPS state.\nYou will be redirected to the settings screen where you can change GPS state manually.\n\n<i>Show me this dialog again.</i></string>
+    <string name="GpsInfoMessage">Because of security issues we are not allowed to programmatically change GPS state.\nYou will be redirected to the settings screen where you can change GPS state manually.\n\n<i>Don\'t show me this dialog again.</i></string>
     <string name="Yes"><b>Yes</b></string>
     <string name="No"><b>No</b></string>
 

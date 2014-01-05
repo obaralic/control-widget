@@ -24,6 +24,7 @@
 package com.obaralic.toggler.activities.base;
 
 import android.app.Activity;
+import android.support.v4.app.FragmentActivity;
 
 import com.obaralic.toggler.utilities.analytics.AnalyticsFactory;
 import com.obaralic.toggler.utilities.analytics.AnalyticsFactory.AnalyticsProviderType;
@@ -33,7 +34,7 @@ import com.obaralic.toggler.utilities.analytics.AnalyticsInterface;
  * The {@link Activity} used as base for every other activity, with purpose of starting and ending
  * session with analytics tool.
  */
-public class BaseActivity extends Activity {
+public class BaseActivity extends FragmentActivity {
 
     @Override
     protected void onStart() {

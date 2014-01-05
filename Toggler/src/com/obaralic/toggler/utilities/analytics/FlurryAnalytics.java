@@ -35,9 +35,7 @@ import com.obaralic.toggler.utilities.analytics.events.FlurryCustomParams;
  * analytics vendor.
  */
 public class FlurryAnalytics implements AnalyticsInterface {
-    
-    private static final String FLURRY_DEBUG_API_KEY = "HQT2RZM6YTFX6R53SX3C";
-    
+
     private static final String FLURRY_API_KEY = "68TK7YFKYWT2JB2TCJZF";
 
     private static FlurryAnalytics sInstance;

@@ -28,7 +28,7 @@ package com.obaralic.toggler.utilities.debug;
  */
 public class LogUtil extends AbstractLogUtil {
 
-    private static final String APP_TAG = "SmarT_";
+    private static final String APP_TAG = "OBR_";
 
     /**
      * Retrieves log tag for this application.
