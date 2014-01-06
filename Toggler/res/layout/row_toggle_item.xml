@@ -23,6 +23,8 @@
  
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     android:layout_height="@dimen/RowContentInfoHeight"
     android:background="@android:color/transparent" >
 
@@ -33,8 +35,8 @@
         android:layout_centerVertical="true"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:background="@android:color/transparent"
-        android:orientation="horizontal" >
+        android:layout_marginLeft="5dp"
+        android:background="@android:color/transparent" >
 
         <include
             android:id="@+id/rowFeatureIcon_RelativeLayout"
@@ -77,5 +79,14 @@
             android:textColor="@color/gray_medium"
             android:textSize="@dimen/Font20sp" />
     </RelativeLayout>
+    
+    <include
+        android:id="@+id/rowSeparator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/row_toggle_icon_RelativeLayout"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        layout="@layout/divide_line" />
 
 </RelativeLayout>

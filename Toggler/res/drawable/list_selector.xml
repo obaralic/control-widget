@@ -26,6 +26,5 @@
     <item android:drawable="@drawable/list_blue" android:state_pressed="true"/>
     <item android:drawable="@drawable/list_blue" android:state_focused="true"/>
     <item android:drawable="@drawable/list_blue" android:state_selected="true"/>
-    <item android:drawable="@drawable/normal"/>
-
+    
 </selector>

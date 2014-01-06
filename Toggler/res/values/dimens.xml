@@ -34,7 +34,7 @@
     <dimen name="marginLeft10dp">10dp</dimen>
     <dimen name="marginRight10dp">10dp</dimen>
     <dimen name="marginTop10dp">10dp</dimen>
-    <dimen name="marginBottom10dp">10dp</dimen>   
+    <dimen name="marginBottom10dp">10dp</dimen>
 
     <!-- General purpose used dimensions -->
     <dimen name="MinWidthWidget1x1">64dp</dimen>

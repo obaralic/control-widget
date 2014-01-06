@@ -1,15 +1,25 @@
-
-/*            ____                   ___
+/*
+ * Copyright 2013 oBaralic, Inc. (owner Zivorad Baralic)
+ *            ____                   ___
  *     ____  / __ )____ __________ _/ (_)____
  *    / __ \/ __  / __ `/ ___/ __ `/ / / ___/
  *   / /_/ / /_/ / /_/ / /  / /_/ / / / /__
  *   \____/_____/\__,_/_/   \__,_/_/_/\___/
  *
- * Copyright 2013 oBaralic, Inc.  All rights reserved.
- * This code is confidential and proprietary information belonging
- * to oBaralic, Inc. and may not be copied, modified or distributed
- * without the express written consent of oBaralic, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 
 package com.obaralic.toggler.utilities.gui;
 
@@ -30,13 +40,16 @@ import com.obaralic.toggler.utilities.general.DrawContentBean;
  */
 public class ContentTypeListAdapter extends ArrayAdapter<DrawContentBean> {
 
-    private List<DrawContentBean> mItems;
+    private final List<DrawContentBean> mItems;
 
-    private Context mContext;
+    private final Context mContext;
 
-    public ContentTypeListAdapter(Context context, int textViewResourceId, List<DrawContentBean> items) {
-        super(context, textViewResourceId, items);
+    private final int mRowLayoutId;
+
+    public ContentTypeListAdapter(Context context, int rowLayoutId, List<DrawContentBean> items) {
+        super(context, rowLayoutId, items);
         this.mItems = items;
+        this.mRowLayoutId = rowLayoutId;
         this.mContext = context;
     }
 
@@ -44,11 +57,11 @@ public class ContentTypeListAdapter extends ArrayAdapter<DrawContentBean> {
     public View getView(int position, View convertView, ViewGroup parent) {
         Context context = mContext;
         ContentTypeViewHolder holder;
-        
+
         if (convertView == null) {
             convertView = newView(context, parent);
         }
-        
+
         holder = (ContentTypeViewHolder) convertView.getTag();
         holder.mPosition = position;
         bindView(context, convertView);
@@ -66,7 +79,7 @@ public class ContentTypeListAdapter extends ArrayAdapter<DrawContentBean> {
      */
     public View newView(Context context, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.row_toggle_item, null);
+        View view = inflater.inflate(mRowLayoutId, null);
         ContentTypeViewHolder holder = new ContentTypeViewHolder(view);
         view.setTag(holder);
         return view;
@@ -79,11 +92,14 @@ public class ContentTypeListAdapter extends ArrayAdapter<DrawContentBean> {
 
         if (drawContentBean != null) {
             int visibility = drawContentBean.isContentEnabled() ? View.VISIBLE : View.GONE;
-            int id = drawContentBean.getIconDrawableId();            
+            int id = drawContentBean.getIconDrawableId();
             holder.showFrame(visibility);
-            holder.mFeatureTextView.setText(drawContentBean.getContentName());
-            holder.mFeatureTextView.setTextColor(context.getResources().getColor(R.color.white));            
-            holder.mFeatureIconImageButton.setImageResource(id);
+            holder.featureTextView.setText(drawContentBean.getContentName());
+            holder.featureTextView.setTextColor(context.getResources().getColor(R.color.white));
+            holder.featureIconImageButton.setImageResource(id);
         }
+        
+        final int visibility = (position == getCount() - 1) ? View.INVISIBLE : View.VISIBLE;
+        holder.dividerView.setVisibility(visibility);
     }
 }

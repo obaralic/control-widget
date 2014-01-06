@@ -28,13 +28,15 @@ public class ContentTypeViewHolder {
 
     private static final String TAG = LogUtil.getTag(ContentTypeViewHolder.class);
 
-    public ImageButton mFeatureIconImageButton;
-    
-    public ImageButton mFeatureSelectedImageButton;
-    
-    public TextView mFeatureTextView;
-    
-    public View mFrameView;
+    public ImageButton featureIconImageButton;
+
+    public ImageButton featureSelectedImageButton;
+
+    public TextView featureTextView;
+
+    public View frameView;
+
+    public View dividerView;
 
     /**
      * View's position in the list. Needed for memorizing which position is the selected one inside the
@@ -52,21 +54,22 @@ public class ContentTypeViewHolder {
     private void initializeFromView(View view) {
         LogUtil.d(TAG, "Called initializeFromView");
 
-        this.mFeatureTextView = (TextView) view.findViewById(R.id.rowFeatureName_TextView);
+        this.featureTextView = (TextView) view.findViewById(R.id.rowFeatureName_TextView);
 
-        this.mFeatureIconImageButton = (ImageButton) view.findViewById(R.id.rowFeatureIcon_ImageButton);
-        this.mFrameView = view.findViewById(R.id.rowFrame_ImageView);
+        this.featureIconImageButton = (ImageButton) view.findViewById(R.id.rowFeatureIcon_ImageButton);
+        this.frameView = view.findViewById(R.id.rowFrame_ImageView);
 
-        this.mFeatureSelectedImageButton = (ImageButton) view
+        this.featureSelectedImageButton = (ImageButton) view
                 .findViewById(R.id.rowFeatureSelectedIcon_ImageButton);
+        this.dividerView = view.findViewById(R.id.rowSeparator);
 
-        this.mFeatureIconImageButton.setFocusable(false);
-        this.mFeatureSelectedImageButton.setFocusable(false);
+        this.featureIconImageButton.setFocusable(false);
+        this.featureSelectedImageButton.setFocusable(false);
     }
 
     public void showFrame(int visibility) {
-        mFrameView.setVisibility(visibility);
-        mFeatureSelectedImageButton.setVisibility(visibility);
+        frameView.setVisibility(visibility);
+        featureSelectedImageButton.setVisibility(visibility);
     }
 
 }

@@ -31,8 +31,6 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="@dimen/marginLeft5dp"
-            android:layout_marginRight="@dimen/marginRight5dp"
             android:layout_marginTop="@dimen/marginTop5dp"
             android:background="@color/gray_light"
             android:orientation="horizontal"
@@ -211,8 +209,11 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/toggleSeparator"
         android:layout_below="@id/activityTitleLabel_TextView"
-        android:layout_margin="10dp"
+        android:layout_marginTop="@dimen/marginTop10dp"
+        android:layout_marginBottom="@dimen/marginBottom5dp"
         android:background="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:divider="@null"
         android:listSelector="@drawable/list_selector" >
     </ListView>
 

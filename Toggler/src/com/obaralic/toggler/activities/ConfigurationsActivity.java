@@ -95,7 +95,7 @@ public class ConfigurationsActivity extends ListActivity {
     private TextView mLicenseAgreementTextView;
 
     private TextView mContentInfoLabel;
-    
+
     private CheckBox mContentInfoCheckBox;
 
     private SkinThumbnailsSelector mSkinThumbnailsSelector;
@@ -172,7 +172,7 @@ public class ConfigurationsActivity extends ListActivity {
     /**
      * Method used to initialize supported toggle features in the {@link ListView}.
      */
-    private void initializeListView() {        
+    private void initializeListView() {
         fillListView();
     }
 
@@ -210,15 +210,15 @@ public class ConfigurationsActivity extends ListActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 ContentType contentType = mInstanceInfoBean.mWidgetContents.get(mFieldType.getFieldIndex());
-                
+
                 if (ContentType.GPS == contentType) {
                     GpsEnablingInfoPersistance persistance = GpsEnablingInfoPersistance.getInstance();
                     persistance.setGpsInfoDialog(getBaseContext(), isChecked);
-                    
+
                 } else if (ContentType.FLASH_TORCH == contentType) {
                     LedFlashEnablingInfoPersistence persistence = LedFlashEnablingInfoPersistence.getInstance();
                     persistence.setLedFlashFixInUse(getBaseContext(), isChecked);
-                }                
+                }
             }
         });
 
@@ -347,7 +347,7 @@ public class ConfigurationsActivity extends ListActivity {
             boolean isChecked = ledPersistence.isLedFlashFixInUse(getBaseContext());
             mContentInfoCheckBox.setChecked(isChecked);
             mContentInfoLabel.setText(R.string.LedFlashInfo);
-            
+
         } else {
             mContentInfoRelativeLayout.setVisibility(View.GONE);
             mGpsInfoSeparatorLinearLayout.setVisibility(View.GONE);
