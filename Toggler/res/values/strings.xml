@@ -33,6 +33,7 @@
     <!-- Widget Info Section -->
     <string name="Widget1x1Name">Smart Control Small</string>
     <string name="Widget4x1Name">Smart Control Large</string>
+    
 
     <!-- Widget Face Section -->
     <string name="FaceTextGPS">GPS</string>

@@ -28,11 +28,11 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 
 import com.obaralic.toggler.database.dao.enums.ContentType;
-import com.obaralic.toggler.provider.sizes.WidgetProviderForSize1x1;
-import com.obaralic.toggler.provider.sizes.WidgetProviderForSize4x1;
+import com.obaralic.toggler.provider.types.StackWidgetProvider;
+import com.obaralic.toggler.provider.types.WidgetProviderForSize1x1;
+import com.obaralic.toggler.provider.types.WidgetProviderForSize4x1;
 import com.obaralic.toggler.service.WidgetUiServiceFacade;
 import com.obaralic.toggler.utilities.debug.LogUtil;
-import com.obaralic.toggler.utilities.debug.TimeLogger;
 import com.obaralic.toggler.utilities.persistence.implementation.ContentStatesPersistence;
 import com.obaralic.toggler.utilities.persistence.implementation.InstantiationPersistence;
 import com.obaralic.toggler.utilities.values.AirplaneModeUtility;
@@ -59,9 +59,6 @@ public class WidgetProvider extends AppWidgetProvider {
     public void onEnabled(Context context) {
         LogUtil.d(TAG, "Called onEnabled");
 
-        TimeLogger timer = new TimeLogger();
-        timer.startTiming();
-
         // Save in persistence info about instantiated widget.
         InstantiationPersistence.getInstance().setAtLeastOneWidgetPresent(context, true);
 
@@ -71,31 +68,31 @@ public class WidgetProvider extends AppWidgetProvider {
         // Start Widget UI Service.
         WidgetUiServiceFacade widgetUiServiceFacade = WidgetUiServiceFacade.get();
         widgetUiServiceFacade.startOnEnabled(context);
-
-        LogUtil.i(TAG, "Time for executing onEnable is: " + timer.endTiming());
     }
 
     @Override
     public void onDisabled(Context context) {
         LogUtil.d(TAG, "Called onDisabled");
 
-        TimeLogger timer = new TimeLogger();
-        timer.startTiming();
-
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 
-        int[] appWidgetIdsFor1x1 = appWidgetManager.getAppWidgetIds(WidgetProviderForSize1x1
+        final int[] appWidgetIdsFor1x1 = appWidgetManager.getAppWidgetIds(WidgetProviderForSize1x1
                 .getComponentName(context));
 
-        int[] appWidgetIdsFor4x1 = appWidgetManager.getAppWidgetIds(WidgetProviderForSize4x1
+        final int[] appWidgetIdsFor4x1 = appWidgetManager.getAppWidgetIds(WidgetProviderForSize4x1
                 .getComponentName(context));
 
-        if (appWidgetIdsFor1x1 == null || appWidgetIdsFor4x1 == null) {
+        final int[] stackAppWidgetIds = appWidgetManager.getAppWidgetIds(StackWidgetProvider
+                .getComponentName(context));
+
+        if (appWidgetIdsFor1x1 == null || appWidgetIdsFor4x1 == null
+                || stackAppWidgetIds == null) {
             LogUtil.e(TAG, "One of App Widget Ids arrays returned is null. Exiting.");
             return;
         }
         // If there are no more widgets present at home screen.
-        else if (appWidgetIdsFor1x1.length == 0 && appWidgetIdsFor4x1.length == 0) {
+        else if (appWidgetIdsFor1x1.length == 0 && appWidgetIdsFor4x1.length == 0
+                && stackAppWidgetIds.length == 0) {
             LogUtil.d(TAG, "All the widgets have been removed from the home screen.");
 
             // Stop Widget UI Service
@@ -105,16 +102,11 @@ public class WidgetProvider extends AppWidgetProvider {
             // Memorize in persistence that there are none widgets present.
             InstantiationPersistence.getInstance().setAtLeastOneWidgetPresent(context, false);
         }
-
-        LogUtil.i(TAG, "Time for executing onDisable is: " + timer.endTiming());
     }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         LogUtil.d(TAG, "Called onUpdate");
-
-        TimeLogger timer = new TimeLogger();
-        timer.startTiming();
 
         // Fill status with the current toggle values
         readAndSetContent(context);
@@ -122,8 +114,6 @@ public class WidgetProvider extends AppWidgetProvider {
         // Do a simple widgets redraw.
         WidgetUiServiceFacade widgetUiServiceFacade = WidgetUiServiceFacade.get();
         widgetUiServiceFacade.startForSimpleRedraw(context);
-
-        LogUtil.i(TAG, "Time for executing onUpdate is: " + timer.endTiming());
     }
 
     private void readAndSetContent(Context context) {
@@ -196,7 +186,6 @@ public class WidgetProvider extends AppWidgetProvider {
                 : FlashTorchUtility.FLASH_TORCH_DISABLED;
 
         statusesPersistence.setContentStates(context, statusesArray);
-
     }
 
 }

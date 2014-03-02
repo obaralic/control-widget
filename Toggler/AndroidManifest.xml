@@ -264,7 +264,7 @@
             =================================================================================================
         -->
         <receiver
-            android:name=".provider.sizes.WidgetProviderForSize4x1"
+            android:name="com.obaralic.toggler.provider.types.WidgetProviderForSize4x1"
             android:label="@string/Widget4x1Name" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -281,7 +281,7 @@
             =================================================================================================
         -->
         <receiver
-            android:name=".provider.sizes.WidgetProviderForSize1x1"
+            android:name="com.obaralic.toggler.provider.types.WidgetProviderForSize1x1"
             android:label="@string/Widget1x1Name" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -291,6 +291,32 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_info_1x1" />
         </receiver>
+
+        <!--
+            =================================================================================================
+            The Widget Provider for the stack widget instance
+            =================================================================================================
+        -->
+        <receiver
+            android:name="com.obaralic.toggler.provider.types.StackWidgetProvider"
+            android:label="@string/stackWidgetName" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/stack_widget_info" />
+        </receiver>
+
+        <!--
+            =================================================================================================
+            The service used to handle stack widget
+            =================================================================================================
+        -->
+        <service android:name="com.obaralic.toggler.service.StackWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            android:exported="false" />
 
     </application>
 </manifest>

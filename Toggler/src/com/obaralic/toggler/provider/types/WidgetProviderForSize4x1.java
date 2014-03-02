@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-package com.obaralic.toggler.provider.sizes;
+package com.obaralic.toggler.provider.types;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -31,7 +31,7 @@ import com.obaralic.toggler.provider.WidgetProvider;
 /**
  * Helper class used for resolving {@link ComponentName} for this class.
  */
-public class WidgetProviderForSize1x1 extends WidgetProvider {
+public class WidgetProviderForSize4x1 extends WidgetProvider {
 
     /**
      * Creates {@link ComponentName} object used for resolving widget id values.
@@ -41,6 +41,7 @@ public class WidgetProviderForSize1x1 extends WidgetProvider {
      * @return The {@link ComponentName} instance.
      */
     public static ComponentName getComponentName(Context context) {
-        return new ComponentName(context, WidgetProviderForSize1x1.class);
+        return new ComponentName(context, WidgetProviderForSize4x1.class);
     }
+
 }

@@ -30,8 +30,8 @@ import android.database.sqlite.SQLiteDatabase;
 import com.obaralic.toggler.database.dao.InstanceInfoDao;
 import com.obaralic.toggler.database.dao.InstanceInfoDaoFactory;
 import com.obaralic.toggler.database.dao.beans.InstanceInfoBean;
-import com.obaralic.toggler.provider.sizes.WidgetProviderForSize1x1;
-import com.obaralic.toggler.provider.sizes.WidgetProviderForSize4x1;
+import com.obaralic.toggler.provider.types.WidgetProviderForSize1x1;
+import com.obaralic.toggler.provider.types.WidgetProviderForSize4x1;
 
 /**
  * Database transactions class that encapsulates two or more queries, inserts or updates into one atomic

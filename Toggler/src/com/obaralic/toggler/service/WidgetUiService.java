@@ -54,7 +54,7 @@ import com.obaralic.toggler.utilities.values.BrightnessUtility;
  * Service used for handling UI changing operations and updating.
  */
 public class WidgetUiService extends Service implements BrightnessStateChangedListener,
-        AutoRotateStateChangedListener {
+AutoRotateStateChangedListener {
 
     private static final String TAG = LogUtil.getTag(WidgetUiService.class);
 
@@ -140,7 +140,7 @@ public class WidgetUiService extends Service implements BrightnessStateChangedLi
         if (WidgetUiServiceFacade.isOnWidgetCickAction(action)) {
 
             // TODO: Let the InstanceInfoBean implements Parcelable and transport that object
-            // from Ui?x1Write to this service and on forward.
+            // from Ui1x1Write to this service and on forward.
             setOnClickActionPersistence(this, intent);
         }
 
@@ -159,7 +159,7 @@ public class WidgetUiService extends Service implements BrightnessStateChangedLi
         // Sets the id of the selected widget.
         int appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, 0);
         AppWidgetIdPersistence.getInstance().setAppWidgetId(context, appWidgetId);
-        
+
         int[] values = getWidgetSizeInFields(intent.getAction());
 
         // Set the widget size measured in fields into persistence.
